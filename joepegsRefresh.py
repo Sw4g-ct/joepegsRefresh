@@ -4,23 +4,28 @@
 import requests
 import time
 
-def startRequests():
-  for i in range(80, 90):
+# Parameters here
+collectionSize = [SIZE] # int e.g. 10000
+ipfsImageLocation = '[LOCATION]' # string e.g. 'https://bafybeifmbd3snpo2ye3422xexo2oeqibi4m4heh67va2ejsdps5atez5xi.ipfs.dweb.link/'
+collectionAddr = '[CONTRACT ADDRESS]' # string e.g. '0xa8f5767f78c765742ed55ca7e04ecf880f745c4e'
+
+def startRequests(_collectionSize, _ipfsImageLocation, _collectionAddr):
+  for i in range(0, _collectionSize):
     
     print('ID: ' + str(i) + 'in process..........')
 
-    a = requests.get('https://bafybeifmbd3snpo2ye3422xexo2oeqibi4m4heh67va2ejsdps5atez5xi.ipfs.dweb.link/%d' % i)
+    a = requests.get(_ipfsImageLocation + '%d' % i)
     print(a.status_code)
     print(a.content)
     
     r = requests.post('https://barn.joepegs.com/v2/items/refresh-metadata', json={
-        "collection": "0xa8f5767f78c765742ed55ca7e04ecf880f745c4e",
-        "tokenId": "%d" % i
+        'collection': _collectionAddr,
+        'tokenId': "%d" % i
     })
 
     print(r.status_code)
     print(r.json())
 
-    time.sleep(5)
+    time.sleep(5) #Adjustable to avoid request gateway time-out
 
-startRequests()
+startRequests(collectionSize, ipfsImageLocation, collectionAddr)
