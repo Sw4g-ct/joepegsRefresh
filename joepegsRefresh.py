@@ -6,8 +6,8 @@ import time
 
 # Parameters here
 collectionSize = [SIZE] # int e.g. 10000
-ipfsImageLocation = '[LOCATION]' # string e.g. 'https://bafybeifmbd3snpo2ye3422xexo2oeqibi4m4heh67va2ejsdps5atez5xi.ipfs.dweb.link/'
-collectionAddr = '[CONTRACT ADDRESS]' # string e.g. '0xa8f5767f78c765742ed55ca7e04ecf880f745c4e'
+ipfsImageLocation = '[LOCATION]' # string e.g. 'https://bafybeifmbd3snpo2xxx422xexo2oeqibi4m4heh67va2ejsdps5atez5xi.ipfs.dweb.link/'
+collectionAddr = '[CONTRACT ADDRESS]' # string e.g. '0xa8f5767fxxx765742ed55ca7e04ecf880f745c4e'
 
 def startRequests(_collectionSize, _ipfsImageLocation, _collectionAddr):
   for i in range(0, _collectionSize):
